@@ -294,3 +294,14 @@ docker images
 
 Expected output
 ![image](https://github.com/user-attachments/assets/62e6e469-8cc7-44c3-a82a-54112928b4ff)
+
+## Lab - Deleting a running container
+```
+docker ps
+docker rm -f ubuntu-jegan
+docker ps -a
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/b251ddad-d623-4244-8b5a-ac9251b90ee0)
+![image](https://github.com/user-attachments/assets/fcfb8505-dfc6-4d33-b812-161060005d4b)
