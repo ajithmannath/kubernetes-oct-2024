@@ -159,3 +159,12 @@ docker ps
 
 Expected output
 ![image](https://github.com/user-attachments/assets/22954fff-fb52-4a5d-b019-6ae456521105)
+
+## Lab - Listing all containers including the exited ones
+```
+docker ps -a
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/e6a69e85-8d83-40b2-9f9d-4fb6e8d6a257)
+![image](https://github.com/user-attachments/assets/3facda88-e63f-461c-8f77-87ea17e87293)
