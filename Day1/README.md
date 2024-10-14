@@ -1,5 +1,10 @@
 # Day 1
 
+## First day feedback link
+<pre>
+https://survey.zohopublic.com/zs/WPBTLR  
+</pre>  
+
 ## Boot Loaders
 <pre>
 - is a system utility that is installed in the hard disk boot sector( byte 0, sector 0 )
