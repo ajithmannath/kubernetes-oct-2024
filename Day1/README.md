@@ -272,3 +272,14 @@ Expected output
 ![image](https://github.com/user-attachments/assets/e10d6e59-194c-4e7c-990e-8e1394aa3888)
 ![image](https://github.com/user-attachments/assets/3571cde3-d564-4bae-9ad5-a1d8072e0739)
 ![image](https://github.com/user-attachments/assets/2bdbc531-23d6-4dc3-aa13-803ed8454b90)
+
+## Lab - Find IP address of a container
+```
+docker ps
+docker inspect c1-jegan | grep IPA
+docker inspect -f {{.NetworkSettings.IPAddress} c1-jegan
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/49150880-2d41-4e74-9b0c-3628c86fd3a5)
+![image](https://github.com/user-attachments/assets/719406b2-f1e5-4ed2-823e-e2dcd50df3c3)
