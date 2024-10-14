@@ -143,6 +143,14 @@ Create and run the container in the background(as a daemon)
 ```
 docker run -dit --name ubuntu-jegan --hostname ubuntu-jegan ubuntu:24.04 /bin/bash
 ```
+In the above command
+<pre>
+dit - stands for detached interactive terminal
+name - unique name of the container, replace 'jegan' with your name
+hostname - though name and hostname can be different, as a best practice make sure they are same to avoid confusion
+ubuntu:24.04 - docker image name
+/bin/bash - application that you wish to run inside the container
+</pre>
 
 List all the running contianers
 ```
