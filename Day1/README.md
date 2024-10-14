@@ -206,3 +206,19 @@ docker image ubuntu:24.04
 Expected output
 ![image](https://github.com/user-attachments/assets/3ac5235f-276f-46b1-b08a-bc97c16393a6)
 ![image](https://github.com/user-attachments/assets/5327f253-bc91-4324-822d-578413e8e34f)
+
+## Lab - Creating a custom Docker Image
+Create a file named Dockerfile with the below content
+```
+FROM ubuntu:24.04
+RUN apt update && apt install -y iputils-ping net-tools
+```
+
+Build a custom docker image
+```
+docker build -t tektutor/ubuntu:24.04 .
+docker images
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/485bcdab-c437-4ee3-ae21-5d832ff92420)
