@@ -128,3 +128,11 @@ docker info
 
 Expected output
 ![image](https://github.com/user-attachments/assets/f5344882-1aa7-4546-8a00-1b320105ab97)
+
+## Lab - Listing docker images in your local docker registry
+```
+docker images
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/f42d05e3-b321-4e02-a000-f2e5d5cdc0fb)
