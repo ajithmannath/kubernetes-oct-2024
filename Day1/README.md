@@ -243,3 +243,32 @@ exit
 Expected output
 ![image](https://github.com/user-attachments/assets/2ef5e045-8583-4ac8-a04e-189e9cf8e280)
 ![image](https://github.com/user-attachments/assets/d9528305-082e-4973-bd7b-919efd61325c)
+
+## Lab - another example of custom docker image
+Create a Dockerfile with below content
+```
+FROM ubuntu:24.04
+RUN apt update && apt install -y iputils-ping net-tools
+RUN apt update && apt install -y default-jdk maven
+```
+
+Build the custom image
+```
+docker build -t tektutor/ubuntu:2.0 .
+docker images
+```
+
+Create a container using custom image
+```
+docker run -dit --name c1-jegan --hostname c1-jegan tektutor/ubuntu:2.0 bash
+docker ps
+docker exec -it c1-jegan bash
+mvn --version
+exit
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/2848c481-f829-491d-a959-408cb2dc1f1d)
+![image](https://github.com/user-attachments/assets/e10d6e59-194c-4e7c-990e-8e1394aa3888)
+![image](https://github.com/user-attachments/assets/3571cde3-d564-4bae-9ad5-a1d8072e0739)
+![image](https://github.com/user-attachments/assets/2bdbc531-23d6-4dc3-aa13-803ed8454b90)
