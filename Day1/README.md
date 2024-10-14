@@ -464,3 +464,28 @@ exit
 
 Expected output
 ![image](https://github.com/user-attachments/assets/110a85f8-34c6-4051-aedf-87453aaa7299)
+
+
+## Lab - Creating mysql server container
+```
+docker run -d --name mysql-jegan --hostname mysql-jegan -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+docker ps -f "name=mysql-jegan"
+docker exec -it mysql-jegan sh
+mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE trainings ( id INT NOT NULL, name VARCHAR(100) NOT NULL, duration VARCHAR(50) NOT NULL, PRIMARY KEY(id) );
+INSERT INTO trainings VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO trainings VALUES ( 2, "Openshift", "5 Days" );
+SELECT * FROM trainings;
+exit
+exit
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/1c03e9b7-62c3-47fe-ba7d-95c0f83402ad)
+![image](https://github.com/user-attachments/assets/a0cec346-6361-46ce-8003-310870362c23)
+![image](https://github.com/user-attachments/assets/394ca175-10b7-49ae-bc69-522c21bc4e59)
+![image](https://github.com/user-attachments/assets/6aa222d6-294f-4164-9a8f-44761f7d5c8c)
+![image](https://github.com/user-attachments/assets/9479cc6e-bc8a-4447-aeaf-15856198e516)
