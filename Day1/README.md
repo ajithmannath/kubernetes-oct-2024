@@ -326,3 +326,12 @@ Expected output
 ![image](https://github.com/user-attachments/assets/f565b1fd-f8ab-43f0-b713-b224e250c8d9)
 ![image](https://github.com/user-attachments/assets/7ef57253-75cd-4df2-87a9-07914610fa05)
 ![image](https://github.com/user-attachments/assets/2c12ae1c-b625-40d4-a442-40a126f0b0e6)
+
+## Lab - Checking containerized application logs
+```
+docker ps | grep jegan
+docker logs nginx1-jegan
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/5aa59e61-e86e-4401-ba24-ea2dc3f2f17b)
