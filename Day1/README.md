@@ -357,3 +357,52 @@ docker rm -f $(docker ps -aq -f "name=jegan")
 Expected output
 ![image](https://github.com/user-attachments/assets/d91adf72-6eac-4eb0-93fc-bfb100d01531)
 ![image](https://github.com/user-attachments/assets/39fb3e99-19a2-495d-955d-0c0d9ea0d44c)
+
+
+## Lab - Setup a load balancer using nginx 
+Let's create 3 nginx web servers without port forwarding
+```
+docker run -d --name web1-jegan nginx:latest
+docker run -d --name web2-jegan nginx:latest
+docker run -d --name web3-jegan nginx:latest
+docker ps -f "name=jegan"
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/3c770669-add1-4447-aaa2-6cf725f5b25d)
+
+
+Let's create a load balancer container using nginx with port forwarding to make accessible from external machines
+```
+docker run -d --name lb-jegan -p 80:80 nginx:latest
+docker ps -f "name=jegan"
+```
+
+Let's copy the nginx.conf file from lb-jegan container to local system
+```
+docker cp lb-jegan:/etc/nginx/nginx.conf .
+```
+
+Let's modify the http block as shown below nginx.conf on our local machine as shown below
+```
+
+http {
+    upstream backend {
+        server 172.17.0.2:80;
+        server 172.17.0.7:80;
+        server 172.17.0.9:80;
+    }
+
+    server {
+        location / {
+            proxy_pass http://backend;
+        }
+    }
+}
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/548a5433-31c8-4840-83dc-f959b78c4a3f)
+![image](https://github.com/user-attachments/assets/c768572a-485b-4c48-9c9d-0139c9492371)
+![image](https://github.com/user-attachments/assets/07a877cd-669d-4465-ba59-a082620d229f)
+![image](https://github.com/user-attachments/assets/bdeea9af-d590-46d4-9270-d77a4874861f)
