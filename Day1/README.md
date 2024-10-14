@@ -453,3 +453,14 @@ docker ps -f "name=jegan"
 
 Expected output
 ![image](https://github.com/user-attachments/assets/2724fbe6-e17e-4326-97b4-2490c177086e)
+
+## Lab - Creating a container in foreground(interactive) mode
+```
+docker run -it --name ubuntu-jegan ubuntu:24.04 bash
+hostname
+hostname -i
+exit
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/110a85f8-34c6-4051-aedf-87453aaa7299)
