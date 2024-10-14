@@ -161,6 +161,13 @@ Expected output
 ![image](https://github.com/user-attachments/assets/22954fff-fb52-4a5d-b019-6ae456521105)
 
 ## Lab - Listing all containers including the exited ones
+
+Stopping a running container
+```
+docker stop ubuntu-jegan
+```
+
+List all containers 
 ```
 docker ps -a
 ```
