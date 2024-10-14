@@ -441,3 +441,15 @@ Expected output
 ![image](https://github.com/user-attachments/assets/bdeea9af-d590-46d4-9270-d77a4874861f)
 ![image](https://github.com/user-attachments/assets/82d695fd-f94e-43d6-ba74-5743294476d6)
 ![image](https://github.com/user-attachments/assets/c720bae9-a77c-473c-9c23-4f1bfb806158)
+
+## Lab - Renaming containers
+```
+docker ps -f "name=jegan"
+docker rename web1-jegan c1-jegan
+docker rename web2-jegan c2-jegan
+docker rename web3-jegan c3-jegan
+docker ps -f "name=jegan"
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/2724fbe6-e17e-4326-97b4-2490c177086e)
