@@ -175,3 +175,13 @@ docker ps -a
 Expected output
 ![image](https://github.com/user-attachments/assets/e6a69e85-8d83-40b2-9f9d-4fb6e8d6a257)
 ![image](https://github.com/user-attachments/assets/3facda88-e63f-461c-8f77-87ea17e87293)
+
+## Lab - Starting an exited container
+```
+docker ps -a
+docker start ubuntu-jegan
+docker ps
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/5308d75e-7e2f-48aa-bbf3-9faacb10893d)
