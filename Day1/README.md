@@ -401,8 +401,43 @@ http {
 }
 ```
 
+We need to copy the modify nginx.conf file back in to the lb container
+```
+docker cp nginx.conf lb-jegan:/etc/nginx/nginx.conf
+```
+
+We need to restart the lb container to apply config changes
+```
+docker restart lb-jegan
+```
+
+We need to check if the nginx container continues to run after config changes
+```
+docker ps
+```
+
+Let's customize the web1-jegan, web2-jegan and web3-jegan container pages
+```
+echo "Server 1" > index.html
+docker cp index.html web1-jegan/usr/share/nginx/html/index.html
+
+echo "Server 2" > index.html
+docker cp index.html web2-jegan/usr/share/nginx/html/index.html
+
+echo "Server 3" > index.html
+docker cp index.html web3-jegan/usr/share/nginx/html/index.html
+```
+
+Let's check if load balancer is routing the calls in round-robin fashion from the web browser
+```
+http://localhost:80
+http://10.0.1.13
+```
+
 Expected output
 ![image](https://github.com/user-attachments/assets/548a5433-31c8-4840-83dc-f959b78c4a3f)
 ![image](https://github.com/user-attachments/assets/c768572a-485b-4c48-9c9d-0139c9492371)
 ![image](https://github.com/user-attachments/assets/07a877cd-669d-4465-ba59-a082620d229f)
 ![image](https://github.com/user-attachments/assets/bdeea9af-d590-46d4-9270-d77a4874861f)
+![image](https://github.com/user-attachments/assets/82d695fd-f94e-43d6-ba74-5743294476d6)
+![image](https://github.com/user-attachments/assets/c720bae9-a77c-473c-9c23-4f1bfb806158)
