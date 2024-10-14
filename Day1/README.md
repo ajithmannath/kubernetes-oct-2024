@@ -136,3 +136,18 @@ docker images
 
 Expected output
 ![image](https://github.com/user-attachments/assets/f42d05e3-b321-4e02-a000-f2e5d5cdc0fb)
+
+## Lab - Create a container and run it in background
+
+Create and run the container in the background(as a daemon)
+```
+docker run -dit --name ubuntu-jegan --hostname ubuntu-jegan ubuntu:24.04 /bin/bash
+```
+
+List all the running contianers
+```
+docker ps
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/22954fff-fb52-4a5d-b019-6ae456521105)
