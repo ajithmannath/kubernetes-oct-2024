@@ -113,8 +113,18 @@
   - CRI-O container runtime
 </pre>
 
-
 ## Docker Overview
+<pre>
+- Docker is develed in go language by a company called Docker Inc
+- a container engine that depends on containerd
+- containerd in turn depends on runC container runtime
+- a very popular container engine
+- off late, due to security vulnerabilities the industry is moving away from Docker
+- some alternates to docker is containerd, podman, etc
+- it comes in 2 flavours
+  - Docker Community Edition - Docker CE ( open source )
+  - Docker Enterprise Edition - Docker EE ( Paid version )
+</pre>
 
 ## Docker High Level Architecture
 ![Docker](DockerHighLevelArchitecture.png)
@@ -335,3 +345,15 @@ docker logs nginx1-jegan
 
 Expected output
 ![image](https://github.com/user-attachments/assets/5aa59e61-e86e-4401-ba24-ea2dc3f2f17b)
+
+
+## Lab - Deleting multiple containers with single docker command
+```
+docker ps | grep jegan
+docker rm -f nginx1-jegan nginx2-jegan c3-jegan c2-jegan c1-jegan
+docker rm -f $(docker ps -aq -f "name=jegan")
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/d91adf72-6eac-4eb0-93fc-bfb100d01531)
+![image](https://github.com/user-attachments/assets/39fb3e99-19a2-495d-955d-0c0d9ea0d44c)
