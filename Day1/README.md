@@ -222,3 +222,24 @@ docker images
 
 Expected output
 ![image](https://github.com/user-attachments/assets/485bcdab-c437-4ee3-ae21-5d832ff92420)
+
+
+Delete the existing container
+```
+docker rm -f ubuntu-jegan
+docker ps -a
+```
+
+Create a container using our custom docker image
+```
+docker run -dit --name ubuntu-jegan --hostname ubuntu-jegan tektutor/ubuntu:24.04 /bin/bash
+docker ps
+docker exec -it ubuntu-jegan bash
+ping -c 2 8.8.8.8
+ifconfig
+exit
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/2ef5e045-8583-4ac8-a04e-189e9cf8e280)
+![image](https://github.com/user-attachments/assets/d9528305-082e-4973-bd7b-919efd61325c)
