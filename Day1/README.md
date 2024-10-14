@@ -305,3 +305,24 @@ docker ps -a
 Expected output
 ![image](https://github.com/user-attachments/assets/b251ddad-d623-4244-8b5a-ac9251b90ee0)
 ![image](https://github.com/user-attachments/assets/fcfb8505-dfc6-4d33-b812-161060005d4b)
+
+## Lab - Port forward to expose a containerized application for external access
+```
+docker run -d --name nginx1-jegan -p 8001:80 nginx:latest
+docker run -d --name nginx1-jegan -p 8002:80 nginx:latest
+docker ps
+```
+
+Accessing the nginx web page from external machine
+```
+http://10.0.1.13:8001
+http://10.0.1.13:8002
+```
+
+In the above url, 10.0.1.13 is the IP address of server1 linux machine, any request received at port 8001 will be forwarded to nginx1-jegan container at port 80
+
+Expected output
+![image](https://github.com/user-attachments/assets/76776e7d-c9c5-4125-8bfe-976eb426ba32)
+![image](https://github.com/user-attachments/assets/f565b1fd-f8ab-43f0-b713-b224e250c8d9)
+![image](https://github.com/user-attachments/assets/7ef57253-75cd-4df2-87a9-07914610fa05)
+![image](https://github.com/user-attachments/assets/2c12ae1c-b625-40d4-a442-40a126f0b0e6)
