@@ -196,3 +196,13 @@ docker ps
 Expected output
 ![image](https://github.com/user-attachments/assets/d9331f4a-0d65-487c-8e5b-2086706a106d)
 ![image](https://github.com/user-attachments/assets/08a8e78f-d8ed-4b47-aa9b-34cced34502d)
+
+## Lab - Finding more details about a docker image
+```
+docker images
+docker image ubuntu:24.04
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/3ac5235f-276f-46b1-b08a-bc97c16393a6)
+![image](https://github.com/user-attachments/assets/5327f253-bc91-4324-822d-578413e8e34f)
