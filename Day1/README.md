@@ -185,3 +185,14 @@ docker ps
 
 Expected output
 ![image](https://github.com/user-attachments/assets/5308d75e-7e2f-48aa-bbf3-9faacb10893d)
+
+## Lab - Restart a running container
+```
+docker ps
+docker restart ubuntu-jegan
+docker ps
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/d9331f4a-0d65-487c-8e5b-2086706a106d)
+![image](https://github.com/user-attachments/assets/08a8e78f-d8ed-4b47-aa9b-34cced34502d)
