@@ -88,6 +88,10 @@
 - container is an application process that runs in a separate namespace
 - containers are not a replacement for Virtualization or OS
 - containers and virtualization are complementing technology, hence they are used in combination in real world
+- each container get its own dedicated network namespace
+- each container get its own dedicated network stack ( 7 OSI Layers )
+- each container get its own dedicated port range ( 0 - 65535 )
+- most of the containers has atleast one network card (virtual network card)
 </pre>
 
 ## Container Engine Overview
@@ -113,3 +117,4 @@
 ## Docker Overview
 
 ## Docker High Level Architecture
+![Docker](DockerHighLevelArchitecture.png)
