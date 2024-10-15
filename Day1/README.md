@@ -322,7 +322,7 @@ Expected output
 ## Lab - Port forward to expose a containerized application for external access
 ```
 docker run -d --name nginx1-jegan -p 8001:80 nginx:latest
-docker run -d --name nginx1-jegan -p 8002:80 nginx:latest
+docker run -d --name nginx2-jegan -p 8002:80 nginx:latest
 docker ps
 ```
 
