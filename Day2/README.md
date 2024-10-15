@@ -72,6 +72,60 @@
 ## Info - Kubernetes High Level Architecture
 
 
+## Info - Kubernetes Control Plane
+<pre>
+- Control Plane Components only run in master nodes
+- below are the Control Plane Components
+  1. API Server
+  2. etcd database
+  3. scheduler
+  4. Controller Managers
+</pre>
+
+#### Info - API Server
+<pre>
+- is the heart of Kubernetes - Container Orchestration Platform  
+- it supports REST API for all Kubernetes features
+- API Server is the only components that has write access to etcd database
+- API Server saves and manages the cluster and application status in the etcd database
+- every API Server has its own dedicated etcd database
+- Whenever new records are added, edited, deleted in the etcd database, API Server will send broadcasting events about the change
+</pre>
+
+#### Info - etcd
+<pre>
+- it is key/value database
+- it is an independent opensource database that is developed and maintained independent of Kubernetes/Openshift
+- distributed database that can be used even outside the scope of Kubernetes/Openshift
+</pre>
+
+#### Info - scheduler
+<pre>
+- this component is responsible to schedule containerized application loads onto healthy nodes within the Kubernetes cluster
+- when we deploy our application into Kubernetes(k8s), it creates Pods, within Pods containers are created, our application runs inside one of those containers
+- the scheduler decides on which Pod goes into which node ( master-1, master-2, master-3, worker-1, worker-2, worker-3 )
+- however, it won't schedule the Pods on its own, it is send the scheduling recommendations to API Server via REST calls
+</pre>
+
+#### Info - Controller Managers
+<pre>
+- Controller Managers is combination of many Controllers
+- monitoring feature and self-healing property are supported by Controllers to our containerized applications
+- For example
+  - Deployment Controller
+  - ReplicaSet Controller
+  - DaemonSet Controller
+  - Endpoint Controller
+  - Storage Controller
+  - Job Controller
+  - CronJob Controller
+- Controller is special type of application that has unrestricted access to all namespaces(projects) within Kubernetes
+- Each Controller monitors one type of Kubernetes Resource
+- For example
+  - Deployment Controller Manages ReplicaSet
+  - ReplicaSet Controller Manages Pods
+</pre>
+
 ## Setup 3 node Kubernetes cluster using Minikube
 ```
 docker --version
