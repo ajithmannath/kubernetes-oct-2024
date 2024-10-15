@@ -68,7 +68,7 @@ https://survey.zohopublic.com/zs/WPBTLR
 - total logical/virtual CPU cores - 8192 x 2 = 16384
 
 ## Hypervisor High Level Architecture
-![Virtualization](HypervisorHighLevelArchitecture.png)
+![Virtualization](HypervisorHighLevelArchitecture1.png)
 
 ## Linux Kernel that supports containerization
 <pre>
