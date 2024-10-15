@@ -126,6 +126,38 @@
   - ReplicaSet Controller Manages Pods
 </pre>
 
+## Pod Overview
+<pre>
+- literal english - a group of whales is called a Pod
+- docker logo is whale, that's how the Pod terminology was coined
+- is a group of related containers
+- a Kubernetes resource which is defined as JSON document
+- Pod definition is stored in etcd and maintained by API Server
+</pre>
+
+
+## ReplicaSet Overview
+<pre>
+- is a Kubernetes resource, that resides in etcd database
+- it captures the below details
+  - container image that must be used while deploying the application containers
+  - desired number of Pod instances that must be running
+  - actual number of Pod instances that are running
+- ReplicaSet controller takes the ReplicaSet definition as an input and it ensures the desired and actual Pod counts are matching always
+</pre>
+
+## Deployment Overview
+<pre>
+- is a Kubernetes resource, that resides in etcd database
+- it captures the below details
+  - name of the deployment
+  - container image that must be used while deploying the respective Pods
+  - number of Pod instances that must be running
+- Deployment Controller takes the Deployment definition as an input and it ensures the desired and actual Pod counts are matching
+  - Deployment Controller creates the ReplicaSet with desired number of Pod instance count, while the ReplicaSet controller is the one that manages the Pods for the respective ReplicaSet
+- is used to deploy stateless application
+</pre>
+
 ## Setup 3 node Kubernetes cluster using Minikube
 ```
 docker --version
