@@ -178,3 +178,74 @@ Expected output
 ![image](https://github.com/user-attachments/assets/b9c972a5-f5cc-49b2-91a5-30f58dbac16b)
 ![image](https://github.com/user-attachments/assets/328fe970-94f7-4bee-a084-de2c9c29f101)
 
+## Lab - Listing Kubernetes nodes in the cluster
+```
+kubectl get nodes
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/ea3f5357-d501-49f1-a7e1-70ca3d163471)
+
+
+## Lab - Finding meta data about master node
+```
+kubectl get nodes
+kubectl describe node/minikube
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/76141e81-4d45-46c3-8cf9-149b5bf4047a)
+![image](https://github.com/user-attachments/assets/5fcbfb6b-71e9-44a3-9149-6b7a506732ab)
+
+## Lab - Finding meta data about master node
+```
+kubectl get nodes
+kubectl describe node/minikube-m02
+```
+
+Expected output
+
+
+## Lab - Deploying our first application into Kubernetes cluster
+Let's create a namespace before deploying nginx
+```
+kubectl create namespace jegan
+```
+
+```
+kubectl create deployment nginx --image=nginx:latest --replicas=3 -n jegan
+```
+
+Listing the deployments
+```
+kubectl get deployments -n jegan
+kubectl get deployment -n jegan
+kubectl get deploy -n jegan
+```
+
+Listing the replicasets
+```
+kubectl get replicasets -n jegan
+kubectl get replicaset -n jegan
+kubectl get rs -n jegan
+```
+
+Listing the pods
+```
+kubectl get pods -n jegan
+kubectl get pod -n jegan
+kubectl get po -n jegan
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/e2f6587f-a4cc-4c5c-94ff-7df6306571ca)
+![image](https://github.com/user-attachments/assets/3f8b385e-8098-40a0-a7b2-a7035c784518)
+
+
+Finding on which node each is running along with their Pod IP Address
+```
+kubectl get po -o wide
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/d7560b33-a032-4164-9ff8-c70f4ea0dd04)
