@@ -167,4 +167,12 @@ docker --version
 docker images
 minikube delete
 minikube start --memory='32g' --cpus='8' -n 3 --driver=virtualbox
+minikube status
+kubectl get nodes
 ```
+
+Expected output
+![image](https://github.com/user-attachments/assets/84cf8f42-15ae-4157-b005-d78ba64aca95)
+![image](https://github.com/user-attachments/assets/073e4587-de52-4cc1-af21-68b4750ecdb8)
+![image](https://github.com/user-attachments/assets/46472045-9eb5-47c8-b36c-4117579787fb)
+![image](https://github.com/user-attachments/assets/b9c972a5-f5cc-49b2-91a5-30f58dbac16b)
