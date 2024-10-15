@@ -129,6 +129,7 @@
 ## Pod Overview
 <pre>
 - literal english - a group of whales is called a Pod
+- it is a JSON file that is stored in etcd database
 - docker logo is whale, that's how the Pod terminology was coined
 - is a group of related containers
 - a Kubernetes resource which is defined as JSON document
@@ -139,6 +140,7 @@
 ## ReplicaSet Overview
 <pre>
 - is a Kubernetes resource, that resides in etcd database
+- it is a JSON file that is stored in etcd database
 - it captures the below details
   - container image that must be used while deploying the application containers
   - desired number of Pod instances that must be running
@@ -149,6 +151,7 @@
 ## Deployment Overview
 <pre>
 - is a Kubernetes resource, that resides in etcd database
+- it is a JSON file that is stored in etcd database
 - it captures the below details
   - name of the deployment
   - container image that must be used while deploying the respective Pods
