@@ -249,3 +249,29 @@ kubectl get po -o wide
 
 Expected output
 ![image](https://github.com/user-attachments/assets/d7560b33-a032-4164-9ff8-c70f4ea0dd04)
+
+
+## Info - What happens internally in Kubernetes cluster when we deploy an application
+```
+kubectl create deployment nginx --image=nginx:latest --replicas=3 -n jegan
+```
+
+<pre>
+- kubectl client tools will make a REST call to API server, requesting to create a deployment with name nginx with 3 Pod instance using container image nginx:latest
+- API Server receives the request from kubectl and it creates a deployment record in the etcd database
+- API Server broadcasts an event to indicate a new deployment by name nginx is created
+- Deployment Controller receives the event, it then makes a REST call to API server, requesting to create a replicaset for nginx deployments
+- API Server receives the request from Deployment Controller, it then creates a replicaset as requested by Deployment controller
+- API Server broadcasts an event to indicate a new replicaset is created for nginx deployment
+- Replicaset Controller receives the event, it then makes a REST call to API Server, requesting to create 3 Pod entries in etcd 
+- API Server receives the request from ReplicaSet Controller, it then create 3 Pods records(JSON) in the etcd database
+- API Server broadcasts an event for every new Pod created
+- Scheduler receives the event, it then identifies a healthy node where that Pod can be scheduled.  Scheduler sends the scheduling recommendataions for each Pod to API Server via REST call
+- API Server receives the scheduling recommendations from Scheduler, it retrieves the respective Pod entries from etcd and then it updates the scheduling details
+- API Server broadcasts an event for every Pod with scheduling details
+- kubelet container agent that runs in the scheduled node receives the event, it then interacts with container runtime to download the image
+- kubelet creates a container with the image downloaded
+- kubelet starts the container
+- kubelet reports the status of each container to API Server via REST call in regular intervals ( hearbeat notifications )
+- API receives the status from kubelet container agents running on each node and it updates the Pod status in the etcd database
+</pre>
