@@ -199,6 +199,7 @@ SystemdCgroup = true
 
 Restart containerd
 ```
+sudo systemctl daemon-reload
 sudo systemctl restart containerd
 sudo systemctl status containerd
 ```
