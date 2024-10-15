@@ -492,3 +492,61 @@ Expected output
 ![image](https://github.com/user-attachments/assets/394ca175-10b7-49ae-bc69-522c21bc4e59)
 ![image](https://github.com/user-attachments/assets/6aa222d6-294f-4164-9a8f-44761f7d5c8c)
 ![image](https://github.com/user-attachments/assets/9479cc6e-bc8a-4447-aeaf-15856198e516)
+
+
+Let's delete the mysql container
+```
+docker rm -f mysql-jegan
+docker ps -a
+```
+
+Let's create a folder in our local linux server
+```
+mkdir -p /tmp/mysql-jegan
+```
+
+Let's mount the above path inside the container using volume mounting to force the container store the data in an external storage
+```
+docker run -d --name mysql-jegan --hostname mysql-jegan -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql-jegan:/var/lib/mysql mysql:latest
+docker ps
+docker exec -it mysql-jegan sh
+mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE trainings ( id INT NOT NULL, name VARCHAR(100) NOT NULL, duration VARCHAR(50) NOT NULL, PRIMARY KEY(id) );
+INSERT INTO trainings VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO trainings VALUES ( 2, "Openshift", "5 Days" );
+SELECT * FROM trainings;
+exit
+exit
+```
+
+Let's delete the mysql-jegan container
+```
+docker rm -f mysql-jegan
+```
+
+Let's recreate a new container using the same local disk path
+```
+docker run -d --name mysql-jegan --hostname mysql-jegan -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql-jegan:/var/lib/mysql mysql:latest
+docker ps
+docker exec -it mysql-jegan sh
+mysql -u root -p
+SHOW DATABASES;
+USE tektutor;
+SHOW TABLES
+SELECT * FROM trainings;
+exit
+exit
+```
+
+As you noticed, the data is intact even though we delete the original container that created those records.
+
+
+Expected output
+![image](https://github.com/user-attachments/assets/1216ddaa-1d81-495c-975d-4bf16d590b9f)
+![image](https://github.com/user-attachments/assets/2980be5a-0e76-453d-9f51-0866703b5b84)
+![image](https://github.com/user-attachments/assets/2480ad08-72fb-4c5a-b054-14b3ce91b515)
+![image](https://github.com/user-attachments/assets/123fb38d-4a52-42d6-8be0-c7d685565735)
+![image](https://github.com/user-attachments/assets/1bf750b2-1462-47a9-b22a-6cd3a1bccbef)
