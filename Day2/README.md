@@ -167,6 +167,6 @@ docker --version
 docker images
 minikube config set driver docker
 minikube config set rootless true
-dockerd-rootless-setuptool.sh install -f
+dockerd-rootless-setuptool.sh install -f --skip-iptables
 minikube start --memory='32g' --cpus='8' -n 3
 ```
