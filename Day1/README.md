@@ -132,6 +132,28 @@ https://survey.zohopublic.com/zs/WPBTLR
 ## Docker High Level Architecture
 ![Docker](DockerHighLevelArchitecture.png)
 
+## Demo - Installing Docker CE in Oracle Linux v9.4
+```
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+sudo usermod -aG docker $USER
+su $USER
+docker --version
+docker images
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/26f1cbe0-b66c-4804-b54a-44c63f0ce048)
+![image](https://github.com/user-attachments/assets/f4d97fc5-1077-44cc-a1ae-10ea96f2df17)
+![image](https://github.com/user-attachments/assets/f9c87586-735e-4ec0-bf16-9694715ee2ea)
+![image](https://github.com/user-attachments/assets/1d6ad36c-e505-4ffe-954f-c198c02156b4)
+![image](https://github.com/user-attachments/assets/76444c3a-f289-457f-b449-d1ccfb015f8d)
+
+
 
 ## Lab - Checking docker version and information
 ```
