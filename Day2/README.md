@@ -206,9 +206,10 @@ sudo systemctl status containerd
 
 Install kubernetes
 ```
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-sudo apt install kubeadm kubelet kubectl kubernetes-cni
+sudo snap install kubeadm --classic
+sudo snap install kubelet --classic
+sudo snap install kubectl --classic
+sudo snap install kubernetes-cni --classic
 ```
 
 Disable virtual memory and comment all the line in /etc/fstab
