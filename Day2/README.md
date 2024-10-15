@@ -178,6 +178,66 @@ Expected output
 ![image](https://github.com/user-attachments/assets/b9c972a5-f5cc-49b2-91a5-30f58dbac16b)
 ![image](https://github.com/user-attachments/assets/328fe970-94f7-4bee-a084-de2c9c29f101)
 
+## Just for your reference - do not try this in rps lab environment
+Create an Ubuntu 24.04 virtual machine for master-1 node and install containerd
+```
+sudo apt-get update
+sudo apt install apt-transport-https curl -y
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install containerd.io -y
+sudo mkdir -p /etc/containerd
+sudo containerd config default | sudo tee /etc/containerd/config.toml
+```
+
+Edit /etc/containerd/config.toml
+```
+SystemdCgroup = true
+```
+
+Restart containerd
+```
+sudo systemctl restart containerd
+sudo systemctl status containerd
+```
+
+Install kubernetes
+```
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+sudo apt install kubeadm kubelet kubectl kubernetes-cni
+```
+
+Disable virtual memory and comment all the line in /etc/fstab
+```
+sudo swapoff -a
+```
+Enable kernel modules
+```
+sudo modprobe br_netfilter
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+Install Flannedl network addon
+```
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
+```
+
+Check the installation
+```
+kubectl get nodes -o wide
+kubectl get pods --all-namespaces
+```
+
+Use the join token to join worker nodes
+
+
 ## Lab - Listing Kubernetes nodes in the cluster
 ```
 kubectl get nodes
