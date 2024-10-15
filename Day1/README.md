@@ -10,10 +10,10 @@ https://survey.zohopublic.com/zs/WPBTLR
 - is a system utility that is installed in the hard disk boot sector( byte 0, sector 0 )
 - MBR stands for Master Boot Record is where the boot loader application is installed
 - it is 512 bytes
-- boot loader application is the first application that runs after the BIOS POST (Power On Self Test completes )
+- boot loader application is the first application that runs after the BIOS POST (Power On Self Test)
 - the boot loader application searches your hard disk, looking for Operating Systems installed on it
 - in case, the boot loader finds more than one OS then it gives a menu for the user to choose which OS they want to boot into
-- in otherwords, boot loader allows only OS to be active at point of time, though many OS is installed in the system
+- in otherwords, though many OS is installed in the systemm the boot loader allows only OS to be active at any point of time
 </pre>  
 
 ## Hypervisor Overview
@@ -67,10 +67,8 @@ https://survey.zohopublic.com/zs/WPBTLR
 - total number of Physical CPU cores - 8 x 4 x 256 = 8192
 - total logical/virtual CPU cores - 8192 x 2 = 16384
 
-
-
 ## Hypervisor High Level Architecture
-
+![Virtualization](HypervisorHighLevelArchitecture.png)
 
 ## Linux Kernel that supports containerization
 <pre>
