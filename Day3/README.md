@@ -113,3 +113,23 @@ Expected output
 ![image](https://github.com/user-attachments/assets/5045cc3c-9847-4513-8e51-6004fa48d135)
 ![image](https://github.com/user-attachments/assets/73246a9d-f25c-4d8e-8cf4-8d546ec3efbc)
 ![image](https://github.com/user-attachments/assets/959cb238-8594-4c21-80d0-9541cebcb17a)
+
+## Lab - Creating a loadbalancer service in declarative style
+
+Let's create an external loadbalancer service for hello deployment
+```
+kubectl expose deploy/hello --type=LoadBalancer --port=8080 -o yaml --dry-run=client
+kubectl expose deploy/hello --type=LoadBalancer --port=8080 -o yaml --dry-run=client > hello-lb-svc.yml
+kubectl apply -f hello-lb-svc.yml
+kubectl get svc
+```
+
+But in order for the loadbalancer service to acquire an external IP, the kubernetes administrator has to install an operator called MetallB.  The Metallb operator configures our local k8s cluster to work like it works in AWS/Azure or any public cloud.
+
+Each time someone creates a LoadBalancer service, the metallb controller will be watching, when it detects some one creating a new loadbalancer service, it configures the metallb load balancer to route the traffic to our pods just like how it works in AWS/Azure.
+
+Let's install the metallb operator
+```
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.8/config/manifests/metallb-native.yaml
+
+```
