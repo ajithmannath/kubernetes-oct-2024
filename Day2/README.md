@@ -405,3 +405,28 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3 -n jegan
   - NodePort Service - this is accessible to external users
   - LoadBalancer Service - generally used in public cloud environment like AWS, GCP, Azure, etc.,
 </pre>
+
+## Lab - Creating an internal service from nginx deployment
+```
+kubectl create namespace jegan
+kubectl create deployment nginx --image=nginx:latest --replicas=3
+kubectl get deploy,rs,po
+```
+
+Let's create an internal service
+```
+kubectl expose deploy/nginx --type=ClusterIP --port=80
+kubectl get services
+kubectl get service
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/be5bdae1-80ce-4766-94f4-a5bfde7dbfe7)
+
+
+## Lab - Set context to your namespace
+```
+kubectl config set-context --current --namespace=jegan
+```
