@@ -131,5 +131,47 @@ Each time someone creates a LoadBalancer service, the metallb controller will be
 Let's install the metallb operator
 ```
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.8/config/manifests/metallb-native.yaml
-
 ```
+
+## Lab - Let's add a new type of resource to K8s cluster
+Create a file named training-crd.yml with the below content
+```
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: trainings.tektutor.org
+spec:
+  group: tektutor.org
+  scope: Namespaced
+  names:
+    kind: Training
+    listKind: TrainingList
+    plural: trainings
+    singular: training
+    shortNames:
+    - train
+  version:
+  - name: v1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          training:
+            type: string
+          duration:
+            type: string
+          from: 
+            type: string
+          to:
+            type: string
+```
+
+
+## Info - Kubernetes Operator Overview
+<pre>
+- Kubernetes Operator helps us extend the Kubernetes API or used to add new functionality to Kubernetes
+- Operator is a combination of one or more Controllers and Custom Resources
+
+</pre>
