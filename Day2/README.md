@@ -486,4 +486,17 @@ Expected output
 ![image](https://github.com/user-attachments/assets/753aead1-91c9-43d1-b08c-6c134c570f8f)
 
 
+## Lab - Port forward ( Meant for developer test )
 
+In the below command, you may replace 8080 with any other port that is available on your system
+```
+kubectl get po
+kubectl port-forward pod/nginx-c95765fd4-csdrk 8080:80
+```
+
+Open a new terminal window
+```
+curl http://localhost:8080
+```
+
+Once you are done you can stop the port-forward by pressing Ctrl+C
