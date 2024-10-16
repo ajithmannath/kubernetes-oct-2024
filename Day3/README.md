@@ -168,6 +168,18 @@ spec:
             type: string
 ```
 
+Let's create a training resource
+```
+apiVersion: tektutor.org/v1
+kind: Training 
+metadata:
+  name: devops-training 
+spec:
+  training: "Advanced DevOps"
+  duration: "5 Days" 
+  from: "4th Nov 2023"
+  to: "8th Nov 2023"
+```
 
 ## Info - Kubernetes Operator Overview
 <pre>
