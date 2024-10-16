@@ -187,34 +187,67 @@ sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install containerd.io -y
-sudo mkdir -p /etc/containerd
-sudo containerd config default | sudo tee /etc/containerd/config.toml
+
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 ```
 
-Edit /etc/containerd/config.toml
-```
-SystemdCgroup = true
-```
-
-Restart containerd
-```
-sudo systemctl daemon-reload
-sudo systemctl restart containerd
-sudo systemctl status containerd
-```
-
-Install kubernetes
+Install kubernetes tools
 ```
 sudo snap install kubeadm --classic
 sudo snap install kubelet --classic
 sudo snap install kubectl --classic
 ```
 
+
+Configure kubelet service, sudo vim /etc/default/kubelet
+```
+KUBELET_EXTRA_ARGS="--cgroup-driver=cgroupfs"
+```
+
+Append below docker configuration
+```
+{
+      "exec-opts": ["native.cgroupdriver=systemd"],
+      "log-driver": "json-file",
+      "log-opts": {
+         "max-size": "100m"
+       },
+      "storage-driver": "overlay2"
+}
+```
+
 Disable virtual memory and comment all the line in /etc/fstab
 ```
 sudo swapoff -a
 ```
+Configure kubeadm, sudo vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf and add the below line
+```
+Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
+```
+
+Restart docker
+```
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+```
+
 Enable kernel modules
 ```
 sudo modprobe overlay
