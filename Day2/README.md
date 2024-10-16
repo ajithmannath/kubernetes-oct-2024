@@ -500,3 +500,6 @@ curl http://localhost:8080
 ```
 
 Once you are done you can stop the port-forward by pressing Ctrl+C
+
+Expected output
+![image](https://github.com/user-attachments/assets/04d00716-a85a-49d6-9322-8f1121d92677)
