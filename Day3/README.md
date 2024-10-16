@@ -84,3 +84,31 @@ kubectl delete -f pod.yml
 Expected output
 ![image](https://github.com/user-attachments/assets/6d675cde-4208-4e6a-8211-889d26347ec9)
 ![image](https://github.com/user-attachments/assets/30e02cb2-8768-48af-a07c-eabb978f9b67)
+
+## Lab - Deploying your custom application into Kubernetes cluster
+
+We need to clone the source code first
+```
+cd ~
+git clone https://github.com/tektutor/spring-ms.git
+rm *.yml *.yaml
+```
+
+Let's build the custom docker image
+```
+docker build -t tektutor/hello-spring-microservice:1.0 .
+docker images
+docker login
+docker push tektutor/hello-spring-microservice:1.0 
+```
+
+Let's deploy our custom application into K8s cluster
+```
+kubectl create deployment hello --image=tektutor/hello-spring-microservice:1.0 ---relicas=2
+kubectl get deploy,rs,po
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/20598ff3-cd29-494b-9a3d-e8d24e346412)
+![image](https://github.com/user-attachments/assets/5045cc3c-9847-4513-8e51-6004fa48d135)
+![image](https://github.com/user-attachments/assets/73246a9d-f25c-4d8e-8cf4-8d546ec3efbc)
