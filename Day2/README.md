@@ -70,7 +70,8 @@
 </pre>
 
 ## Info - Kubernetes High Level Architecture
-
+![kubernetes](master-node.png)
+![kubernetes](K8sArchitecture.png)
 
 ## Info - Kubernetes Control Plane
 <pre>
