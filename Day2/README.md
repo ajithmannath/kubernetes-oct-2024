@@ -391,3 +391,17 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3 -n jegan
 </pre>
 
 ![kubernetes-internals](openshift-internals.png)
+
+## Info - Kubernetes Service
+<pre>
+- a way to expose an application that runs in Kubernetes for internal/external access
+- represents a group of load balanced pods from a single deployment
+- services supports 2 types of scope
+  1. Internal and
+  2. External
+- Internal Service
+  - ClusterIP Service - this is accessible only within the Kubernetes cluster where the application Pods are running
+- External Service
+  - NodePort Service - this is accessible to external users
+  - LoadBalancer Service - generally used in public cloud environment like AWS, GCP, Azure, etc.,
+</pre>
