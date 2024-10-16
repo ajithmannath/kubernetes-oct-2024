@@ -218,7 +218,7 @@ Configure kubelet service, sudo vim /etc/default/kubelet
 KUBELET_EXTRA_ARGS="--cgroup-driver=cgroupfs"
 ```
 
-Append below docker configuration
+Append below docker configuration in /etc/docker/daemon.json
 ```
 {
       "exec-opts": ["native.cgroupdriver=systemd"],
