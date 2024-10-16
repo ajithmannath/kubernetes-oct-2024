@@ -234,7 +234,11 @@ Append below docker configuration in /etc/docker/daemon.json
 Disable virtual memory and comment all the line in /etc/fstab
 ```
 sudo swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 ```
+
+
+
 Configure kubeadm, sudo vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf and add the below line
 ```
 Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
