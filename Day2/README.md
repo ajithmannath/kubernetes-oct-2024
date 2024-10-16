@@ -453,4 +453,37 @@ Expected output
 ![image](https://github.com/user-attachments/assets/1ebc379b-41ec-4ddc-9846-5976d976545d)
 ![image](https://github.com/user-attachments/assets/02ab19c6-1dcc-4ed9-8ecd-ddc4e973330f)
 
+## Lab - Creating a nodeport external service
+
+First of all, we need to delete the clusterip internal service
+```
+kubectl config set-context --current --namespace=jegan
+kubectl delete svc/nginx
+kubectl get svc
+```
+
+Let's list the deployment
+```
+kubectl get deploy
+```
+
+Let's create the nodeport external service
+```
+kubectl expose deploy/nginx --type=NodePort --port=80
+kubectl get svc
+kubectl describe svc/nginx
+```
+
+Accessing the nodeport service, let's find the node ip address
+```
+kubectl get nodes -o wide
+curl http://master-1:<node-port>
+curl http://master-1:30348
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/b9c1b2a2-f9df-4c40-8b89-729d70b2a9d4)
+![image](https://github.com/user-attachments/assets/753aead1-91c9-43d1-b08c-6c134c570f8f)
+
+
 
