@@ -430,3 +430,27 @@ Expected output
 ```
 kubectl config set-context --current --namespace=jegan
 ```
+
+## Lab - Accessing ClusterIP Internal service
+Let's create a test pod
+```
+kubectl config set-context --current --namespace=jegan
+kubectl run test --image=tektutor/spring-ms:1.0
+kubectl get po
+```
+
+Let's get inside the test pod shell
+```
+kubectl exec -it test -- bash
+curl http://<service-ip>:<service-port>
+curl http://<service-name>:<service-port>
+
+curl http://nginx:80
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/4a5a4cbd-c4af-4776-948a-04c5c42c0831)
+![image](https://github.com/user-attachments/assets/1ebc379b-41ec-4ddc-9846-5976d976545d)
+![image](https://github.com/user-attachments/assets/02ab19c6-1dcc-4ed9-8ecd-ddc4e973330f)
+
+
