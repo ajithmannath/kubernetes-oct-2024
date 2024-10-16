@@ -185,5 +185,17 @@ spec:
 <pre>
 - Kubernetes Operator helps us extend the Kubernetes API or used to add new functionality to Kubernetes
 - Operator is a combination of one or more Controllers and Custom Resources
-
 </pre>
+
+
+## Demo - Configure the metallb operator
+```
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: default
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - tektutor-metallb-addresspool
+```
