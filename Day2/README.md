@@ -372,3 +372,5 @@ kubectl create deployment nginx --image=nginx:latest --replicas=3 -n jegan
 - kubelet reports the status of each container to API Server via REST call in regular intervals ( hearbeat notifications )
 - API receives the status from kubelet container agents running on each node and it updates the Pod status in the etcd database
 </pre>
+
+![kubernetes-internals](openshift-internals.png)
