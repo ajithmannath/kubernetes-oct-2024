@@ -503,3 +503,19 @@ Once you are done you can stop the port-forward by pressing Ctrl+C
 
 Expected output
 ![image](https://github.com/user-attachments/assets/04d00716-a85a-49d6-9322-8f1121d92677)
+
+## Lab - Autogenerating declarative manifest script for nginx deployment
+```
+kubectl create deployment nginx --image=nginx:latest --replicas=3 -o json --dry-run=client
+kubectl create deployment nginx --image=nginx:latest --replicas=3 -o yaml --dry-run=client
+
+kubectl create deployment nginx --image=nginx:latest --replicas=3 -o yaml --dry-run=client > nginx-deploy.yml
+
+kubectl config set-context --current --namespace=jegan
+kubectl create -f nginx-deploy.yml --save-config
+kubectl get deploy,rs,po
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/93398759-6fe0-4f37-9686-8486004987bc)
+![image](https://github.com/user-attachments/assets/f7c44c49-a01d-4102-8812-a2070266a0f6)
