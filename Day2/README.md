@@ -180,7 +180,7 @@ Expected output
 ![image](https://github.com/user-attachments/assets/328fe970-94f7-4bee-a084-de2c9c29f101)
 
 ## Just for your reference - do not try this in rps lab environment
-Create an Ubuntu 24.04 virtual machine for master-1 node and install containerd
+Create an Ubuntu 24.04 virtual machine for master-1 node and install docker
 ```
 sudo apt-get update
 sudo apt install apt-transport-https curl -y
