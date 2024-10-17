@@ -85,7 +85,21 @@ https://mvallim.github.io/kubernetes-under-the-hood/documentation/kube-flannel.h
 
 Let's understand flannel briefly
 <pre>
-- is a simple layer 3 network fabric designed for Kubernetes by CoreOS organization
+- one of the oldest and most mature CNI plugins available
+- is a simple, lightweight layer 3 fabric for Kubernetes
+- uses Overlay Network
+- developed by CoreOS
+- operates on Layer 3 of the OSI model and uses the VX-LAN as its default backend to move network packets between nodes
+- provides access to basic networking features and requires limited amount of administration to set up and maintain
+- supports a variety of backends like VX-LAN, host-gateway, AWS VPC, AliVPC, IPIP, and IPSec etc., 
+- overlay network is a network that is layered on top of another network
+- overlay network can be used to handle pod-to-pod traffic between nodes 
+- Overlay networks work by encapsulating network packets
+- when a pod initiates a connection to an IP address outside of the cluster, the node hosting the pod will use SNAT (Source Network Address Translation) to map the source address of the packet from the pod IP to the node IP
+- is a great entry level choice for Kubernetes cluster networking
+- drawbacks
+  - doesn't support Network Policy
+  - as each packets are encapsulated by sender and de-encapsulated by the receiver it impacts overvall network performance negatively
 - when flannel CNI is installed in Kubernetes, one Flannel Pod gets created on each Kubernetes node
 - flannel either uses Kubernetes API to store network configurations in etcd or gets direct write access to etcd database just like API Server
 - when kubernetes master node is bootstrapped(installed), we need to assign a Pod network subnet
@@ -100,15 +114,35 @@ Let's understand flannel briefly
     - Worker 2 - 10.244.5.0/24
     - Worker 3 - 10.244.6.0/24
 - the subnet for every node is    
-- Flannel supports multiple backends for encapsulating packets
-  - VXLAN ( recommended )
-  - host-gw
-- Flannel doesn't support Network Policy
 </pre>
 
-### Calico
+## Calico Overview
 <pre>
--   
+- Calico 
+  - implemented by company called Tigera
+  - comes in 2 flavours
+    - opensource and
+    - enterprise
+  - most popular and commonly used in Kubernetes/Openshift CNI
+  - provides both Network and Network Policy
+  - operates on Layer 3 of the OSI model and uses the BGP(Border Gateway Protocol) protocol to move network packets between nodes
+  - BGP is one of the fundamental building blocks of the internet, with exceptional scaling characteristics
+  - Using BGP, Calico directs packets natively, without needing to wrap them in additional layers of encapsulation
+
+</pre>	
+
+## Weave Overview
+<pre>
+- is a flexible networking solution for Kubernetes/Openshift clusters
+- developed by a company called WeaveWorks
+- Weave comes in 2 flavours
+  - opensource and paid
+- weave routes packets using fast datapath method
+- weave routes packets uses a slower network method called sleeve packet forward when fast datapath fails
+- is easy to install and configure
+- creates a mesh overlay network to connect all the nodes in the cluster
+- Weave is a good choice for organizations that need a flexible and scalable networking solution for their Kubernetes/Openshift clusters	
 </pre>
+
 
 ### Weave
