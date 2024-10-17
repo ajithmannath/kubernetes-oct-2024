@@ -131,7 +131,7 @@ Let's understand flannel briefly
 
 </pre>	
 
-## Weave Overview
+## Weave Net Overview
 <pre>
 - is a flexible networking solution for Kubernetes/Openshift clusters
 - developed by a company called WeaveWorks
@@ -143,6 +143,3 @@ Let's understand flannel briefly
 - creates a mesh overlay network to connect all the nodes in the cluster
 - Weave is a good choice for organizations that need a flexible and scalable networking solution for their Kubernetes/Openshift clusters	
 </pre>
-
-
-### Weave
