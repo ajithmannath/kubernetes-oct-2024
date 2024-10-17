@@ -1,6 +1,14 @@
 # Day4
 
 ## Docker Network Model
+<pre>
+- Each container gets an unique private IP on the system it runs
+- Containers can be connected to Docker Network
+- Docker creates a default bridge network called docker0 with subnet 172.17.0.0/16 ( 65535 IP addresses )
+- Containers get their IP address from the subnet range assigned to the Docker network
+- Containers running on same network can communicate with each other directly
+- a single container can be connected to multiple networks, which means they may get multiple IP addresses
+</pre>  
 
 #### Subnet
 <pre>
@@ -77,9 +85,30 @@ https://mvallim.github.io/kubernetes-under-the-hood/documentation/kube-flannel.h
 
 Let's understand flannel briefly
 <pre>
-- 
+- is a simple layer 3 network fabric designed for Kubernetes by CoreOS organization
+- when flannel CNI is installed in Kubernetes, one Flannel Pod gets created on each Kubernetes node
+- flannel either uses Kubernetes API to store network configurations in etcd or gets direct write access to etcd database just like API Server
+- when kubernetes master node is bootstrapped(installed), we need to assign a Pod network subnet
+- eg: kubeadm init --pod-network-cidr=10.244.0.0/16
+- in the above example 10.244.0.0/16 ( 65535 IP addresses are allocated for Pods created in the K8s cluster )
+- the above subnet is sub-divided into small subnets(IP ranges) and allocated to every node by Flannel
+  - For example
+    - Master 1 - 10.244.1.0/24 ( Upto 256 IP addresses, as Nodes by default can support only 110 Pods this is more than enough )
+    - Master 2 - 10.244.2.0/24 
+    - Master 3 - 10.244.3.0/24
+    - Worker 1 - 10.244.4.0/24
+    - Worker 2 - 10.244.5.0/24
+    - Worker 3 - 10.244.6.0/24
+- the subnet for every node is    
+- Flannel supports multiple backends for encapsulating packets
+  - VXLAN ( recommended )
+  - host-gw
+- Flannel doesn't support Network Policy
 </pre>
 
 ### Calico
+<pre>
+-   
+</pre>
 
 ### Weave
