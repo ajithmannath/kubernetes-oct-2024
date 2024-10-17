@@ -256,3 +256,10 @@ Let's check the image used by nginx pods after rolling update completed successf
 ```
 kubectl get po -o yaml | grep image
 ```
+
+Rolling back to previous version of image
+```
+kubectl rollout undo deploy/nginx
+kubectl rollout status deploy/nginx
+kubectl get po -o yaml | grep image
+```
