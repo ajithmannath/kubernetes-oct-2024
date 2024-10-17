@@ -126,31 +126,94 @@
 
 #### Info - Controller Managers
 <pre>
-- Controller Managers is combination of many Controllers
-- monitoring feature and self-healing property are supported by Controllers to our containerized applications
+- a group of controllers
+- is a collection of many 
+- is a Pod that runs in every master node
+- controller is an application that runs in a never ending while loop 
+- each controller manages one type of Openshift resource
 - For example
-  - Deployment Controller
-  - ReplicaSet Controller
-  - DaemonSet Controller
-  - Endpoint Controller
-  - Storage Controller
-  - Job Controller
-  - CronJob Controller
-- Controller is special type of application that has unrestricted access to all namespaces(projects) within Kubernetes
-- Each Controller monitors one type of Kubernetes Resource
-- For example
-  - Deployment Controller Manages ReplicaSet
-  - ReplicaSet Controller Manages Pods
+  - Deployment Controller manages Deployment
+  - ReplicaSet Controller manages ReplicaSet
+  - Job Controller manages Jobs
+  - CronJob Controller manages CronJobs
+  - StatefulSet Controller manages StatefulSet
+  - DaemonSet Controller manager DaemonSet
+  - Endpoint Controller manages Pod endpoints used in services
+</pre>
+
+## Info - Deployment Controller
+<pre>
+- When pods are requested by the user, it will try to spread the pods on multiples nodes but there is no assurance
+- it is possible all the pods from a specific deployment may be scheduled to the same nodes as well
+- Deployment controller doesn't put any constraint on scheduling, hence it is upto the scheduler to decide which pod goes to which node
+- what is the guarantee offered 
+  - at point of time, the desired number of pods will be always running
+  - but they can run on any nodes
+</pre>
+
+## Info - DaemonSet Controller
+<pre>
+- unlike the Deployment Controller, daemonset controller ensures one Pod per node are deployed
+- the number of Pods deployed will be equivalent to the number of nodes in your openshift cluster
+- hence, the pods created as part of daemonset are distributed always one Pod per node
+- What is the practical usecase for this?
+  - prometheus pod to collect performance metrics need to run in every node
+  - kube-proxy pod in Kubernetes/Openshift runs in every node
+- what is the guarantee offerred
+  - if 5 nodes are there in cluster, 5 pods would be created
+  - each Pod would be scheduled to different nodes in the cluster
+  - the total number of pods and nodes would match 
+</pre>
+
+## Info - StatefulSet Controller
+<pre>
+- used to deploy stateful applications
+- they tend to use external storage in general
+- generally when we have deploy database applications as a cluster that synchronizes data
+- creating a cluster of database varies for every database, hence cluster creation is our responsibility
+- statefulset provides the required sections/provisions to create a cluster, but it won't create a cluster of databases out of the box
+- scaling up/down the number of db pods and make them work as cluster is very complex, hence we also need to do some configurations to ensure they are running as a cluster
+</pre>
+
+## Info - Job Controller
+<pre>
+- is used to do any one time activity
+- the one time activity will run in a container which of part of a Pod
+- example
+  - taking one time backup of etcd database
+</pre>  
+
+## Info - CronJob Controller
+<pre>
+- is used to do any repeating tasks 
+- it can be scheduled to run on a particular day/week/month and particular time
+- example
+  - taking backup, every friday midnight
 </pre>
 
 ## Pod Overview
 <pre>
 - literal english - a group of whales is called a Pod
+- Logical grouping of containers
+- containers is where our application will be running
 - it is a JSON file that is stored in etcd database
 - docker logo is whale, that's how the Pod terminology was coined
 - is a group of related containers
 - a Kubernetes resource which is defined as JSON document
 - Pod definition is stored in etcd and maintained by API Server
+</pre>
+
+## Info - Labels
+<pre>
+- key/values pairs
+- labels are used to map child objects
+- every components has one to many labels
+- the deployment will identify its respective replicaset using labels as a selector
+- the replicaset will identify its respective pods using labels as a selector
+- For example
+  - Each Deployment has one or more ReplicaSets
+  - Each ReplicaSet has one or more Pod
+  - Each Pod has one or more Containers
 </pre>
 
 
