@@ -219,3 +219,40 @@ kubectl get po
 ```
 
 Expected output
+
+## Lab - Rolling update
+
+Let's create a namespace and deploy nginx v1.8 
+```
+kubectl create namespace jegan
+kubectl config set-context --current --namespace=jegan
+kubeclt create deployment nginx --image=nginx:1.18 --replicas=3
+kubectl get po -o yaml | grep image
+kubectl get rs
+kubectl get deploy
+```
+
+Let's perform rolling update ( upgrade nginx image from 1.18 to 1.19 )
+```
+kubectl set image deploy/nginx nginx=nginx:1.19
+```
+
+Let's observe if 2 replicasets are created under nginx deployment
+```
+kubectl get rs
+```
+
+Let's check the pod
+```
+kubectl get po
+```
+
+Let's check the status of the rolling update
+```
+kubectl rollout status deploy/nginx
+```
+
+Let's check the image used by nginx pods after rolling update completed successfully
+```
+kubectl get po -o yaml | grep image
+```
