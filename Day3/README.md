@@ -210,3 +210,12 @@ kubectl get po
 ```
 
 Expected output
+
+## Lab - Scale down nginx deployment
+```
+kubectl get po
+kubectl scale deploy/nginx --replicas=3
+kubectl get po 
+```
+
+Expected output
