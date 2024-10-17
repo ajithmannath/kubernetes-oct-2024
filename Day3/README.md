@@ -283,9 +283,11 @@ kubectl get po -o yaml | grep image
 
 ## Info - ReplicationController vs ReplicaSet
 <pre>
-- In older version of Kubernetes, the only way we could deploy stateless appliction is via ReplicationController
-- The Replications supports both Rolling Update and Scale up/down
+- In older version of Kubernetes, the only way we could deploy stateless application is via ReplicationController
+- The ReplicationController supports both Rolling Update and Scale up/down
 - One Controller does two things, which violates Single Responsibility Principle ( SOLID - SRP Principle )
 - In latest version of kubernetes, they refactored(broken down) ReplicationController functionality into Deployment and ReplicaSet
-- The Deployment supports rolling update to stateless applications, while the ReplicaSet supports scale updd 
+- The Deployment supports rolling update to stateless applications, while the ReplicaSet supports scale up/down
+- ReplicationController is still supported for backward compatility and legacy application
+- We should strictly avoid using ReplicationController for deploying new application
 </pre>
