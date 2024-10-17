@@ -75,7 +75,7 @@ https://www.tigera.io/blog/everything-you-need-to-know-about-kubernetes-networki
 
 ## Red Hat Openshift High-Level Architecture
 ![openshift](openshiftArchitecture.png)
-![openshift](master-node.png)
+![openshift](Day2/master-node.png)
 
 ## Kube config file
 - the oc/kubectl client tools requires a config file that has connection details to the API Server(load balancer)
