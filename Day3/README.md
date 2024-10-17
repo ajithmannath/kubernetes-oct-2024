@@ -104,7 +104,7 @@ docker push tektutor/hello-spring-microservice:1.0
 
 Let's deploy our custom application into K8s cluster
 ```
-kubectl create deployment hello --image=tektutor/hello-spring-microservice:1.0 ---relicas=2
+kubectl create deployment hello --image=tektutor/hello-spring-microservice:1.0 ---replicas=2
 kubectl get deploy,rs,po
 ```
 
