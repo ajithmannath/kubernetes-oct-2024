@@ -263,3 +263,21 @@ kubectl rollout undo deploy/nginx
 kubectl rollout status deploy/nginx
 kubectl get po -o yaml | grep image
 ```
+
+## Info - Ingress
+<pre>
+- a routing rule
+- for an Ingress to work, basically 3 things are required
+  1. Ingress rule ( we will be writing this a yaml file )
+  2. Ingress Controller (Nginx Controller or HAProxy Ingress Controller)
+  3. Either Nginx Load Balancer or HAProxy Load Balancer
+- For instance,
+  - We have a bank website with login, balance enquiry, fundtransfer, cheque request, logout, etc.,
+  - assume we have develped each of the above features as a microservice, hence each one will be a separate deployment
+  - Using ingress we will get a public url, so base path we can route the traffic to different microservices
+  - E.g 
+    - www.somebank.com - home page
+    - www.somebank.com/login - this should be forwarded to the login microservice K8s service
+    - www.somebank.com/fundtransfer - this should be forwarded to the fundtransfer microservice K8s service
+</pre>
+
