@@ -73,6 +73,22 @@
 ![kubernetes](master-node.png)
 ![kubernetes](K8sArchitecture.png)
 
+## Kubernetes Cluster
+<pre>
+- a group of Linux servers that works together as a Kubernetes Cluster
+- the Linux servers can be an onpremise server, virtual machine that runs locally or on a public cloud
+- these Linux servers are called Kubernetes Nodes
+- Kubernetes Nodes are of two types
+  - Master Node and
+  - Worker Node
+- Master Node 
+  - control plane Pods runs only in master nodes
+  - a Master node can also be configured to run user application pods just like a worker node
+  - master can behave as Master and Worker Node if they are configured 
+- Worker Node 
+  - this is where typically user application Pods are deployed
+</pre>  
+
 ## Info - Kubernetes Control Plane
 <pre>
 - Control Plane Components only run in master nodes
