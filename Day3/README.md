@@ -316,3 +316,28 @@ kubectl get po -o yaml | grep image
   - access mode
   - labels (optional)
 </pre>
+
+## Info - What is Ingress?
+<pre>
+- routing/forwarding rules
+- Ingress helps in forwarding the calls to multiple different services pointing to different deployments
+- Ingress is not a service
+- We can declaratively create ingress rules, which are retreived by Ingress Controller, which then configures the load balancer with the forwarding rules we listing in the ingress
+- For Ingress to work, we need the below
+  - Ingress ( rules )
+  - Ingress Controller
+  - Load Balancer
+</pre>
+
+## Info - What is Ingress Controller?
+<pre>
+- Ingress Controller is Controller like Deployment Controller, ReplicaSet Controller
+- Ingress Controller keeps an eye on every new Ingress created in any project namespace
+- Ingress Controller monitors any change done to existing Ingress resources under any project namespace
+- Ingress Controller also will monitor when Ingress is deleted in any project namespace
+- Ingress Controller picks the rules we mentioned in the Ingress resource and configures the load balancer accordingly
+- There are two popular ingress controllers
+  - Nginx Ingress Controller
+  - HAProxy Ingress Controller
+- In our lab setup, we are using HAProxy Load Balancer, hence we need to use HAProxy Ingress Controller
+</pre>
