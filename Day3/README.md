@@ -199,3 +199,14 @@ spec:
   ipAddressPools:
   - tektutor-metallb-addresspool
 ```
+
+## Lab - Scale up nginx deployment
+```
+kubectl create namespace jegan
+kubectl create deployment nginx --image=nginx:latest --replicas=3
+kubectl get po
+kubectl scale deploy/nginx --replicas=5
+kubectl get po 
+```
+
+Expected output
