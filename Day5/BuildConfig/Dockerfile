@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/openjdk-11 AS stage1
+FROM registry.access.redhat.com/ubi8/openjdk-11 as stage1
 COPY . .
 RUN mvn clean package
 
