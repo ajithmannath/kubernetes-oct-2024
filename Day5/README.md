@@ -188,6 +188,16 @@ oc get projects | grep jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/7612b691-92bd-415c-84eb-3db2663b908b)
 
+## Lab - Deploying an application in openshift S2I(source to Image) 
+```
+oc project jegan
+oc new-app --name=hello https://github.com/tektutor/spring-ms.git
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/e68ac0bb-21b9-40b1-b99e-6fc12e7eb3ff)
+![image](https://github.com/user-attachments/assets/9724cbd9-b117-431c-b1c2-4f4273156f0e)
+
 
 
 ## Further references
