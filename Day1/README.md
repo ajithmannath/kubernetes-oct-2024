@@ -47,10 +47,10 @@
   - KVM - supported in all Linux distibutions
 </pre>
 
-## Server Grade Processor
-- it supports 128,256,512 cpu cores
+## Server Grade Processors
+- supports 128,256,512 cpu cores
 - Motherboards with 8 Processor Sockets
-- Processors also come in 2 types of packaging
+- Processors also comes in 2 types of packaging
   - SCM ( single chip module )
   - MCM ( multiple chip module )
 
@@ -60,39 +60,6 @@
 - While SMT(Simulateneous Multi Threading) is AMD's equivalent technology
 - Virtualization Softwares see each Physical core as 2 Virtual Cores if they support Hyperthreading/SMT
 - In some high-end server grade Processors, each Physical core are seen as 8 Virtual Cores
-
-## What is Hypervisor?
-- general term used to refer to the Virtualization Technology
-- Virtualization allows us to run many Operating Systems side by side as Guest OS on a single Desktop/Laptop/Server
-- many Operating Systems can be active at the same time
-- each Virtual Machine aka Guest OS are allocated with dedicated Hardware resources
-- Each Virtual Machine will get
-  - its own dedicated CPU Cores
-  - its own dedicated RAM
-  - its own dedicated Storage
-  - its own Network Card(Virtual - Software Defined Network Card - NIC)
-  - its own Graphics Card(Virtual)
-- Assume you have a laptop with 4 Cores(Quad Core Processor), 16 GB RAM and 500 GB Hard Disk
-  - in such a laptop/desktop how many maximum Virtual Machine(VMs - Guest OS) we can run in parallel?
-- AMD Processor
-  - the virtualization feature is called AMD-V
-  - this must be enabled on the BIOS
-- Intel Processor
-  - the virtualization features is called VT-X
-  - this must be enabled on the BIOS
-- Examples
-  - VMWare
-    - VMWare Fusion (Virtualization Software that works in Mac OS-X) - Type 2
-    - VMWare Workstation ( Virtualization Software that works on Windows/Linux ) - Type 2
-    - VMWare vSphere/v-center - Type 1 Hypervisor ( Bare Metal Servers - Servers with no OS )
-  - Oracle
-    - Virtual Box (Free - works in Windows/Mac/Linux) - Type 2
-  - Parallels ( Mac OS-X)
-  - Microsoft
-    - Hyper-V (Works from Windows 10 Pro onwards )
-- this type of Virtualization is called Heavy Weight 
-- each Virtual Machine represents one fully function Operating System
-- the Operating System has its own dedicated OS Kernel
 
 ## Multi Chip Module
 - Single Integrated Chip (IC) hosting multiple Processors
@@ -205,8 +172,6 @@ Expected output
 ![image](https://github.com/user-attachments/assets/f9c87586-735e-4ec0-bf16-9694715ee2ea)
 ![image](https://github.com/user-attachments/assets/1d6ad36c-e505-4ffe-954f-c198c02156b4)
 ![image](https://github.com/user-attachments/assets/76444c3a-f289-457f-b449-d1ccfb015f8d)
-
-
 
 ## Lab - Checking docker version and information
 ```
@@ -543,7 +508,6 @@ exit
 Expected output
 ![image](https://github.com/user-attachments/assets/110a85f8-34c6-4051-aedf-87453aaa7299)
 
-
 ## Lab - Creating mysql server container
 ```
 docker run -d --name mysql-jegan --hostname mysql-jegan -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
@@ -567,7 +531,6 @@ Expected output
 ![image](https://github.com/user-attachments/assets/394ca175-10b7-49ae-bc69-522c21bc4e59)
 ![image](https://github.com/user-attachments/assets/6aa222d6-294f-4164-9a8f-44761f7d5c8c)
 ![image](https://github.com/user-attachments/assets/9479cc6e-bc8a-4447-aeaf-15856198e516)
-
 
 Let's delete the mysql container
 ```
@@ -617,7 +580,6 @@ exit
 ```
 
 As you noticed, the data is intact even though we delete the original container that created those records.
-
 
 Expected output
 ![image](https://github.com/user-attachments/assets/1216ddaa-1d81-495c-975d-4bf16d590b9f)
