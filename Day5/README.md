@@ -222,8 +222,25 @@ Expected output
 ![image](https://github.com/user-attachments/assets/cbe3c029-5cf7-4f83-a4d3-3fd8fc46acbc)
 ![image](https://github.com/user-attachments/assets/d86e3322-a1c5-4363-9421-6308e1bf38a7)
 ![image](https://github.com/user-attachments/assets/21e891ec-61d9-4cb9-91fb-3de70093f0f4)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/49e12846-fff5-44f6-902f-719979b765b3)
 
+## Lab - Creating a build declaratively using a custom Buildconfig via yaml file
+```
+cd ~/kubernetes-oct-2024
+git pull
+cd Day5/Buildconfig
+oc create is tektutor-spring-hello
+oc get imagestreams
+oc get imagestream
+oc get is
+oc describe is/tektutor-spring-hello
+
+oc apply -f buildconfig.yml
+```
+
+Expected outupt
+![image](https://github.com/user-attachments/assets/00301d75-0c59-4ac7-ba24-52c7d6089543)
+![image](https://github.com/user-attachments/assets/5f051a4b-5a60-4d5a-8a9a-efb5de32b572)
 
 
 ## Further references
