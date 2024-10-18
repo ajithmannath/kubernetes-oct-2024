@@ -155,6 +155,7 @@ oc describe node/master01.ocp4.rps.com
 
 Expected output
 ![image](https://github.com/user-attachments/assets/94b4d493-8247-42ba-81bc-5f260fa8dc7c)
+![image](https://github.com/user-attachments/assets/d82dcdd8-d4d8-4926-b4f3-3ed21e3efa28)
 
 
 ## Further references
