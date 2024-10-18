@@ -143,6 +143,10 @@ oc version
 kubectl version
 ```
 
+Expected output
+![image](https://github.com/user-attachments/assets/958721c9-6663-468e-901e-5e80e0edd711)
+
+
 
 ## Further references
 <pre>
