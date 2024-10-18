@@ -158,6 +158,8 @@ Expected output
 ![image](https://github.com/user-attachments/assets/d82dcdd8-d4d8-4926-b4f3-3ed21e3efa28)
 
 ## Lab - Create a new project
+
+The below command will create a new project and switches to the project
 ```
 oc new-project jegan
 ```
@@ -165,7 +167,7 @@ oc new-project jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/91353271-7aca-46de-b97c-e33cee4d6ea3)
 
-
+## Lab - Let's deployment 
 
 ## Further references
 <pre>
