@@ -133,7 +133,15 @@ cat ~/.kube/config
 - Hence, whenever we deploy new appplication we need choose Deployment over the DeploymentConfig as DeploymentConfig internally uses ReplicationController
 </pre>
 
-## Lab - List 
+## Lab - List the openshift nodes
+```
+oc get nodes
+kubectl get nodes
+oc get nodes -o wide
+kubectl get nodes -o wide
+oc version
+kubectl version
+```
 
 
 ## Further references
