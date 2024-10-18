@@ -274,3 +274,9 @@ https://www.tigera.io/blog/everything-you-need-to-know-about-kubernetes-networki
 
 https://docs.openshift.com/container-platform/4.8/windows_containers/understanding-windows-container-workloads.html#understanding-windows-container-workloads
 </pre>
+
+
+## Please give your training feedback at the below url ( you may use the RPS cloud machine )
+<pre>
+https://survey.zohopublic.com/zs/CAD36F  
+</pre>
