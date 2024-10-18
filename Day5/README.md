@@ -177,6 +177,18 @@ oc get deploy,rs,po
 Expected output
 ![image](https://github.com/user-attachments/assets/6d3acf2b-cd26-4c39-a01b-7a3386a5f39d)
 
+## Lab - Deleting a project along with all resources in it
+```
+oc project
+oc get all
+oc delete project jegan
+oc get projects | grep jegan
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/7612b691-92bd-415c-84eb-3db2663b908b)
+
+
 
 ## Further references
 <pre>
