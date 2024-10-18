@@ -167,7 +167,16 @@ oc new-project jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/91353271-7aca-46de-b97c-e33cee4d6ea3)
 
-## Lab - Let's deployment 
+## Lab - Let's create a nginx deployment 
+```
+oc project jegan
+oc create deploy nginx --image=nginx:latest --replicas=3
+oc get deploy,rs,po
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/6d3acf2b-cd26-4c39-a01b-7a3386a5f39d)
+
 
 ## Further references
 <pre>
