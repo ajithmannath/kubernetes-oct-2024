@@ -9,7 +9,7 @@ Server 1 ( 10.0.1.13 )
 - user01 to user08
 - user17 to user20
 
-Server 2 ( 10.0.1.25 )
+Server 3 ( 10.0.1.25 )
 - user09 to user16
 - user21 to user24
 </pre>  
@@ -132,6 +132,9 @@ cat ~/.kube/config
 - Kubernetes, deprecated the use of ReplicationController
 - Hence, whenever we deploy new appplication we need choose Deployment over the DeploymentConfig as DeploymentConfig internally uses ReplicationController
 </pre>
+
+## Lab - List 
+
 
 ## Further references
 <pre>
