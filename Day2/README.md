@@ -1,5 +1,29 @@
 # Day 2
 
+## You might be interested in these blogs
+<pre>
+https://medium.com/@jegan_50867/kubernetes-3-node-cluster-using-k3s-d28b2c09e2f7
+
+https://medium.com/@jegan_50867/kubernetes-3-node-cluster-using-k3s-with-docker-e325cc82fd50
+
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+
+https://www.tecmint.com/install-nfs-server-on-ubuntu/
+</pre>
+
+
+## Recommnended Projects to learn Kubernetes internals by doing the setup by hand
+<pre>
+https://github.com/kelseyhightower/kubernetes-the-hard-way
+</pre>
+
+## What are the options to install Kubernetes?
+1. Minikube - Good for learning purpose but not production grade
+2. MicroK8s - Lightweight setup,  good for learning and production 
+3. K3S - Lightweight setup, good for learning and production grade
+4. Kubernetes setup using kubeadm - https://medium.com/tektutor/kubernetes-3-node-cluster-setup-50943378be41
+5. Kubespray - Ansible playbook - Production Grade
+
 ## Info - Container Orchestration Platform Overview
 <pre>
 - Container Orchestration Platforms supports the below features  
