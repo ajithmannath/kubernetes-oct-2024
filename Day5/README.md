@@ -145,6 +145,7 @@ kubectl version
 
 Expected output
 ![image](https://github.com/user-attachments/assets/958721c9-6663-468e-901e-5e80e0edd711)
+![image](https://github.com/user-attachments/assets/1e371900-5d33-4f2d-a24e-9c0f67419009)
 
 
 
