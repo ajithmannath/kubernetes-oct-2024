@@ -202,12 +202,27 @@ Expected output
 ```
 oc import-image ubi8/openjdk-11:1.20-2.1727147549 --from=registry.access.redhat.com/ubi8/openjdk-11:1.20-2.1727147549 --confirm
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/1b941ed4-c9fb-4f25-911f-003c46c29dab)
+![image](https://github.com/user-attachments/assets/3ecd6f7c-4596-4b80-9776-fa987c7150bd)
+![image](https://github.com/user-attachments/assets/805b0b2a-65dc-4b4d-9403-f15861cfea2d)
+![image](https://github.com/user-attachments/assets/f770b2d8-7d39-4de2-866c-919a731750d1)
+
 
 ## Lab - Deploy your custom application using S2I source strategy
 ```
 oc new-project jegan
 oc new-app --name=hello openjdk-11:1.20-2.1727147549~https://github.com/tektutor/spring-ms.git --strategy=source
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/82277dda-d978-4221-815e-3ba4a571a4c7)
+![image](https://github.com/user-attachments/assets/cfa0d14a-a1f8-4af6-aee6-8e823e8b7d5d)
+![image](https://github.com/user-attachments/assets/04496dca-519d-4b29-ba5b-b3e13f77cbe8)
+![image](https://github.com/user-attachments/assets/458a10f5-d96e-4378-8bdf-9489ff938004)
+![image](https://github.com/user-attachments/assets/cbe3c029-5cf7-4f83-a4d3-3fd8fc46acbc)
+![image](https://github.com/user-attachments/assets/d86e3322-a1c5-4363-9421-6308e1bf38a7)
+![image](https://github.com/user-attachments/assets/21e891ec-61d9-4cb9-91fb-3de70093f0f4)
+![Uploading image.png…]()
 
 
 
