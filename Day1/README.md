@@ -1,10 +1,5 @@
 # Day 1
 
-## First day feedback link
-<pre>
-https://survey.zohopublic.com/zs/WPBTLR  
-</pre>  
-
 ## Boot Loaders
 <pre>
 - is a system utility that is installed in the hard disk boot sector( byte 0, sector 0 )
@@ -52,7 +47,6 @@ https://survey.zohopublic.com/zs/WPBTLR
   - KVM - supported in all Linux distibutions
 </pre>
 
-
 ## Server Grade Processor
 - it supports 128,256,512 cpu cores
 - Motherboards with 8 Processor Sockets
@@ -60,25 +54,63 @@ https://survey.zohopublic.com/zs/WPBTLR
   - SCM ( single chip module )
   - MCM ( multiple chip module )
 
+## What is HyperThreading(Intel)/SMT(AMD)?
+- Processors that support Hyperthreading/SMT allow each phyical core to execute 2 to 8 threads at the same time
+- Hyperthreading is Intel technology
+- While SMT(Simulateneous Multi Threading) is AMD's equivalent technology
+- Virtualization Softwares see each Physical core as 2 Virtual Cores if they support Hyperthreading/SMT
+- In some high-end server grade Processors, each Physical core are seen as 8 Virtual Cores
 
-## Minimal number of Physical server to support 1000 Virtual Machines
-- assume the server motherboards supports 8 Processor Sockets
-- if we install MCM based Processor, i.e each IC has 4 Processor, each Processor supporting 256 cores
-- total number of Physical CPU cores - 8 x 4 x 256 = 8192
-- total logical/virtual CPU cores - 8192 x 2 = 16384
+## What is Hypervisor?
+- general term used to refer to the Virtualization Technology
+- Virtualization allows us to run many Operating Systems side by side as Guest OS on a single Desktop/Laptop/Server
+- many Operating Systems can be active at the same time
+- each Virtual Machine aka Guest OS are allocated with dedicated Hardware resources
+- Each Virtual Machine will get
+  - its own dedicated CPU Cores
+  - its own dedicated RAM
+  - its own dedicated Storage
+  - its own Network Card(Virtual - Software Defined Network Card - NIC)
+  - its own Graphics Card(Virtual)
+- Assume you have a laptop with 4 Cores(Quad Core Processor), 16 GB RAM and 500 GB Hard Disk
+  - in such a laptop/desktop how many maximum Virtual Machine(VMs - Guest OS) we can run in parallel?
+- AMD Processor
+  - the virtualization feature is called AMD-V
+  - this must be enabled on the BIOS
+- Intel Processor
+  - the virtualization features is called VT-X
+  - this must be enabled on the BIOS
+- Examples
+  - VMWare
+    - VMWare Fusion (Virtualization Software that works in Mac OS-X) - Type 2
+    - VMWare Workstation ( Virtualization Software that works on Windows/Linux ) - Type 2
+    - VMWare vSphere/v-center - Type 1 Hypervisor ( Bare Metal Servers - Servers with no OS )
+  - Oracle
+    - Virtual Box (Free - works in Windows/Mac/Linux) - Type 2
+  - Parallels ( Mac OS-X)
+  - Microsoft
+    - Hyper-V (Works from Windows 10 Pro onwards )
+- this type of Virtualization is called Heavy Weight 
+- each Virtual Machine represents one fully function Operating System
+- the Operating System has its own dedicated OS Kernel
 
-## Hypervisor High Level Architecture
-![Virtualization](HypervisorHighLevelArchitecture1.png)
+## Multi Chip Module
+- Single Integrated Chip (IC) hosting multiple Processors
+- The MCM Chip can be installed in a Single Socket on your Server grade Motherboard
+- Let's assume a MCM IC hosting 8 Processors each supporting 128 Cores
+  - total cores supported - 8 x 128 x 2 = 2048 cores
 
-## Linux Kernel that supports containerization
-<pre>
-1. Namespace - isolating one container from other containers
-2. Control Groups ( CGroups ) 
-   - helps in applying resource quoto restrictions to individual containers
-   - we can restrict,how much maximum RAM a container can utilize 
-   - we can restrict, how many CPU cores a container can utilize
-</pre>  
-
+## Linux Kernel Features
+- Supports two interesting features that enable container technology
+  1. Namespace and
+     - each container is separated from other containers as they run in a virtual sandbox environment
+     - each container gets many namespaces
+       - PID namespace
+       - Network namespace, etc
+  2. Control Group (CGroup)
+     - it is through this feature, we can restrict a container hardware resource utilization
+     - For instance, we can restrict a container using only 25% of CPU ( if the OS has let's 4 cores, the container can only use 1 core at the max )
+ 
 ## Containerization
 <pre>
 - is an application virtualization technology
@@ -96,6 +128,27 @@ https://survey.zohopublic.com/zs/WPBTLR
 - each container get its own dedicated port range ( 0 - 65535 )
 - most of the containers has atleast one network card (virtual network card)
 </pre>
+
+## What are the different Container Tools available?
+<pre>
+- LXC
+- Rkt ( pronounced as Rocket )
+- Podman
+</pre>
+
+## Difference between Docker(Containers) and Virtualization
+<pre>
+- Virtual Machine is a fully functional Operating System while a container just hosts an application with all its dependencies
+- Each Virtual Machine get its own share of Hardware resources ( CPU Cores, RAM and Storage ), while containers share the hardware resources on the underlying Operating System where they run
+- Virtual Machines are heavy weight while Containers are light-weight
+- Only a limited number of Virtual Machines can be active on laptop while on the same laptop you could easily run 40~50 containers
+</pre>
+
+## Minimal number of Physical server to support 1000 Virtual Machines
+- assume the server motherboards supports 8 Processor Sockets
+- if we install MCM based Processor, i.e each IC has 4 Processors, each Processor supporting 256 CPU cores
+- total number of Physical CPU cores =  8 x 4 x 256 = 8192
+- total logical/virtual CPU cores = 8192 x 2 = 16384
 
 ## Container Engine Overview
 <pre>
