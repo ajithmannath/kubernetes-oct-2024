@@ -198,6 +198,17 @@ Expected output
 ![image](https://github.com/user-attachments/assets/e68ac0bb-21b9-40b1-b99e-6fc12e7eb3ff)
 ![image](https://github.com/user-attachments/assets/9724cbd9-b117-431c-b1c2-4f4273156f0e)
 
+## Lab - Importing image into Openshift Internal registry
+```
+oc import-image ubi8/openjdk-11:1.20-2.1727147549 --from=registry.access.redhat.com/ubi8/openjdk-11:1.20-2.1727147549 --confirm
+```
+
+## Lab - Deploy your custom application using S2I source strategy
+```
+oc new-project jegan
+oc new-app --name=hello openjdk-11:1.20-2.1727147549~https://github.com/tektutor/spring-ms.git --strategy=source
+```
+
 
 
 ## Further references
