@@ -157,6 +157,15 @@ Expected output
 ![image](https://github.com/user-attachments/assets/94b4d493-8247-42ba-81bc-5f260fa8dc7c)
 ![image](https://github.com/user-attachments/assets/d82dcdd8-d4d8-4926-b4f3-3ed21e3efa28)
 
+## Lab - Create a new project
+```
+oc new-project jegan
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/91353271-7aca-46de-b97c-e33cee4d6ea3)
+
+
 
 ## Further references
 <pre>
