@@ -148,6 +148,14 @@ Expected output
 ![image](https://github.com/user-attachments/assets/1e371900-5d33-4f2d-a24e-9c0f67419009)
 
 
+## Lab - Finding more details about an openshift node
+```
+oc describe node/master01.ocp4.rps.com
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/94b4d493-8247-42ba-81bc-5f260fa8dc7c)
+
 
 ## Further references
 <pre>
