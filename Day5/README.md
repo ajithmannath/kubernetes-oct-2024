@@ -241,6 +241,11 @@ oc apply -f buildconfig.yml
 Expected outupt
 ![image](https://github.com/user-attachments/assets/00301d75-0c59-4ac7-ba24-52c7d6089543)
 ![image](https://github.com/user-attachments/assets/5f051a4b-5a60-4d5a-8a9a-efb5de32b572)
+![image](https://github.com/user-attachments/assets/f3adbaae-1514-492e-b992-7f0e10a0893e)
+![image](https://github.com/user-attachments/assets/0fb82eee-2cba-4859-922b-ef4bbcc9d00f)
+![image](https://github.com/user-attachments/assets/c671e5ca-8ebc-4b35-b38c-83ab788df00f)
+![image](https://github.com/user-attachments/assets/92cdc360-32b9-4805-9685-37c8d6d9cbed)
+![image](https://github.com/user-attachments/assets/5aac37ff-0515-4886-95c8-645b3e1c5c48)
 
 
 ## Further references
