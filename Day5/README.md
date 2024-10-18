@@ -1,5 +1,20 @@
 # Day5
 
+## Lab connection details
+
+<pre>
+From the RPS cloud windows machine you need to open Remote Desktop connection and type
+  
+Server 1 ( 10.0.1.13 )
+- user01 to user08
+- user17 to user20
+
+Server 2 ( 10.0.1.25 )
+- user09 to user16
+- user21 to user24
+</pre>  
+
+
 ## Red Hat Openshift Overview
 <pre>
 - is Red Hat's Kubernetes distribution
