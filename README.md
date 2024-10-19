@@ -3,6 +3,7 @@
 ## Openshift logs issue resolved now ( Sat, Oct 19 7:17:16 AM )
 - Some of the certificate request approvals were kept pending due to which logs were not working
 - I have approved all the pending certificate signing requests, hence you should be able to check the pod logs in command line and webconsole
+- Pod terminals also should be accessible from command line and webconsole
 - oc get csr -o name | xargs oc adm certificate approve
 - https://access.redhat.com/solutions/4307511
 
