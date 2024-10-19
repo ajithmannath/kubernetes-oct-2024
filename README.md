@@ -4,6 +4,7 @@
 - Some of the certificate request approvals were kept pending due to which logs were not working
 - I have approved all the pending certificate signing requests, hence you should be able to check the pod logs in command line and webconsole
 - oc get csr -o name | xargs oc adm certificate approve
+- https://access.redhat.com/solutions/4307511
 
 ### To hire me as your External Openshift/Kubernetes Consultant for your organization, you can reach out to me
 <pre>
