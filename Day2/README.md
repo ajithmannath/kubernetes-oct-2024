@@ -14,7 +14,7 @@ https://www.tecmint.com/install-nfs-server-on-ubuntu/
 </pre>
 
 
-## Recommnended Projects to learn Kubernetes internals by doing the setup by hand
+## Recommended Projects to learn Kubernetes internals by doing the setup by hand
 <pre>
 https://github.com/kelseyhightower/kubernetes-the-hard-way
 </pre>
