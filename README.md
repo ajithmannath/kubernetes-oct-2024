@@ -1,5 +1,7 @@
 # Kubernetes 14-18 Oct 2024
 
+## Openshift logs issue resolved now
+
 ### To hire me as your External Openshift/Kubernetes Consultant for your organization, you can reach out to me
 <pre>
 Mobile - +91 822-000-5626
