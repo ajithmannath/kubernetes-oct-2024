@@ -1,6 +1,6 @@
 # Kubernetes 14-18 Oct 2024
 
-## Openshift logs issue resolved now
+## Openshift logs issue resolved now ( Sat, Oct 19 7:17:16 AM )
 - Some of the certificate request approvals were kept pending due to which logs were not working
 - I have approved all the pending certificate signing request, hence you should be able to check the pod logs in command line and webconsole
 - oc get csr -o name | xargs oc adm certificate approve
