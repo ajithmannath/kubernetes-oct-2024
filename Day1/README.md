@@ -337,7 +337,7 @@ Expected output
 ![image](https://github.com/user-attachments/assets/49150880-2d41-4e74-9b0c-3628c86fd3a5)
 ![image](https://github.com/user-attachments/assets/719406b2-f1e5-4ed2-823e-e2dcd50df3c3)
 
-## Lab - Deleteing a docker image from local registry
+## Lab - Deleting a docker image from local registry
 ```
 docker pull hello-world:latest
 docker images
